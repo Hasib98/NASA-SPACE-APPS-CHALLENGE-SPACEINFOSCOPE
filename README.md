@@ -11,6 +11,21 @@ This project is a React-based web application that provides information about ex
 
 This application aims to make space exploration and exoplanet research accessible to everyone, from curious beginners to astronomy enthusiasts.
 
+## NASA Data Used
+
+This project utilizes NASA's open APIs to fetch and display exoplanet data. Some of the relevant APIs used include:
+
+1. Exoplanet Archive API:
+   `https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&format=json`
+
+2. NASA Exoplanet Query API:
+   `https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&select=*`
+
+3. Kepler Candidate Exoplanets API:
+   `https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=cumulative&format=json`
+
+To use these APIs in your project, you'll need to [generate an API key from NASA](https://api.nasa.gov/). This key allows you to access NASA's data and ensures proper usage of their services.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
