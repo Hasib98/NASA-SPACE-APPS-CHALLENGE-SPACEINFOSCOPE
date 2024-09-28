@@ -2,7 +2,7 @@
 
 This project is a React-based web application that provides information about exoplanets using NASA's API. Users can explore and learn about planets orbiting stars outside our solar system, view their characteristics, and discover the latest findings in space exploration.
 
-Key features:
+## Key features:
 
 • 🌎 Browse a catalog of known exoplanets
 • 🔬 View detailed information about each exoplanet
