@@ -1,6 +1,6 @@
-# Exoplanet Explorer: Discover Worlds Beyond Our Solar System
+# SpaceInfoScope: Your Exoplanet Explorer and Information Hub
 
-This project is a React-based web application that provides information about exoplanets using NASA's API. Users can explore and learn about planets orbiting stars outside our solar system, view their characteristics, and discover the latest findings in space exploration.
+SpaceInfoScope is a React-based web application that provides comprehensive information about exoplanets using NASA's API. Users can explore and learn about planets orbiting stars outside our solar system, view their characteristics, and discover the latest findings in space exploration.
 
 ## Key features:
 
