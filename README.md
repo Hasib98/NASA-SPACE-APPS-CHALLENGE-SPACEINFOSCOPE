@@ -4,10 +4,10 @@ This project is a React-based web application that provides information about ex
 
 Key features:
 
-🌎 Browse a catalog of known exoplanets.
-🔬 View detailed information about each exoplanet.
-📊 Visualize exoplanet data through interactive charts and graphs.
-🚀 Stay updated with the latest discoveries from NASA's exoplanet missions.
+• 🌎 Browse a catalog of known exoplanets
+• 🔬 View detailed information about each exoplanet
+• 📊 Visualize exoplanet data through interactive charts and graphs
+• 🚀 Stay updated with the latest discoveries from NASA's exoplanet missions
 
 This application aims to make space exploration and exoplanet research accessible to everyone, from curious beginners to astronomy enthusiasts.
 
