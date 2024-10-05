@@ -1,3 +1,3 @@
 export default function App() {
-  return <div>TODO</div>;
+  return <div className="bg-red-500">TODO</div>;
 }
