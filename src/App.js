@@ -3,7 +3,9 @@ export default function App() {
   return (
     <div className="flex flex-col items-center space-y-7">
       <Title />
+      <Search />
       <SatelliteCardBundle />
+      <PlanetCard />
     </div>
   );
 }
@@ -13,6 +15,15 @@ export function Title() {
     <h1 className="text-4xl  font-kavoon text-white mt-16">
       Welcome to Space Info Scope
     </h1>
+  );
+}
+
+export function Search() {
+  return (
+    <div>
+      <input type="text" />
+      <button className="bg-fuchsia-700">Search</button>
+    </div>
   );
 }
 export function SatelliteCardBundle() {
@@ -45,5 +56,27 @@ export function SatelliteCard({ satellite }) {
 export function Satellite({ satellite }) {
   const sat = require(`./assets/${satellite}`);
 
-  return <img src={sat} alt="Satellite" className="w-full h-full" />;
+  return <img src={sat} alt="Satellite" className=" drop-shadow-2xl" />;
+}
+
+export function PlanetCard() {
+  const planet = require("./assets/gas-giant.png");
+  return (
+    <div className=" bg-slate-50  h-auto w-4/5 rounded-xl  border-solid border-4 border-sky-500 flex space-x-16 items-center justify-center">
+      <Planet planet={planet} />
+      <Planet planet={planet} />
+      <Planet planet={planet} />
+      <Planet planet={planet} />
+      <Planet planet={planet} />
+    </div>
+  );
+}
+
+export function Planet({ planet }) {
+  return (
+    <div className="flex flex-col items-center justify-center gap-y-3 size-40 mt-4 mb-4">
+      <img src={planet} alt="Satellite" className=" drop-shadow-2xl h-2/3" />
+      <div className=" font-kavoon text-violet-950 ">Gas Giant</div>
+    </div>
+  );
 }
