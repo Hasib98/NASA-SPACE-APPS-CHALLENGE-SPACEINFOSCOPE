@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         kavoon: ["Kavoon", "system-ui"],
+        mochiy: ["Mochiy Pop P One", "sans-serif"],
       },
     },
   },
