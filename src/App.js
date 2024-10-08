@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 // import "./assets/paper-plane.svg";
 export default function App() {
@@ -8,17 +8,20 @@ export default function App() {
   const [planetTitle, setPlanetTitle] = useState("");
 
   useEffect(() => {
-    async function fetchPlanets() {
+    const fetchPlanets = async () => {
+      if (!cardSatellite) return;
+
       const encodedValue = encodeURIComponent(cardSatellite);
-      console.log(encodedValue);
       const url = `https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+pl_name+FROM+ps+WHERE+disc_facility='${encodedValue}'&format=json`;
 
-      const response = await fetch(url, { mode: "no-cors" });
-
-      const data = await response.json();
-      console.log(data[0].pl_name);
-      setPlanetTitle(data[0].pl_name);
-    }
+      try {
+        const response = await fetch(url, { mode: "no-cors" });
+        const data = await response;
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching planets:", error);
+      }
+    };
 
     fetchPlanets();
   }, [cardSatellite]);
