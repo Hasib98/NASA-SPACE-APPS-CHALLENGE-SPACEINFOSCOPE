@@ -89,7 +89,7 @@ function SatelliteCard({ satelliteName, setActiveSatellite }) {
 }
 
 function Satellite({ satelliteName }) {
-  const sat = require(`./assets/${satelliteName}.png`);
+  const sat = require(`./${satelliteName}.png`);
 
   return <img src={sat} alt="Satellite" className=" drop-shadow-2xl" />;
 }
@@ -107,7 +107,7 @@ function PlanetCard({ activeSatellite, planetList }) {
 }
 
 function Planet({ planetTitle }) {
-  const planet = require(`./assets/gas-giant.png`);
+  const planet = require(`./gas-giant.png`);
   return (
     <div className="flex flex-col items-center justify-center gap-y-3 size-40 mt-4 mb-4">
       <img src={planet} alt="Satellite" className=" drop-shadow-2xl h-2/3" />
