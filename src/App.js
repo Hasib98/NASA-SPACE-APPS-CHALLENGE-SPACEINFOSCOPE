@@ -9,7 +9,7 @@ export default function App() {
     const encodedValue = encodeURIComponent(activeSatellite);
     // const url =
     //   "https://corsproxy.io/?https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+5+pl_name+FROM+ps+WHERE+disc_facility=%27Transiting%20Exoplanet%20Survey%20Satellite%20(TESS)%27&format=json";
-    const url = `https://corsproxy.io/?https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+5+pl_name+FROM+ps+WHERE+disc_facility='${encodedValue}'&format=json`;
+    const url = `https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+5+pl_name+FROM+ps+WHERE+disc_facility='${encodedValue}'&format=json`;
     async function fecthData() {
       try {
         const res = await fetch(url);
