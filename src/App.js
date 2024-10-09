@@ -94,7 +94,6 @@ function Satellite({ satelliteName }) {
   return <img src={sat} alt="Satellite" className=" drop-shadow-2xl" />;
 }
 function PlanetCard({ activeSatellite, planetList }) {
-  const planet = require("./assets/gas-giant.png");
   return (
     <div className=" bg-slate-50  h-auto w-4/5 rounded-xl  border-solid border-4 border-sky-500 flex flex-col items-center justify-center">
       <div className="font-mochiy">{activeSatellite || "Exoplanet Types:"}</div>
