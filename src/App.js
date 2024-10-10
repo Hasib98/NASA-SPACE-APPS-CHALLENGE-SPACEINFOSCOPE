@@ -2,16 +2,19 @@
 import { useState, useEffect } from "react";
 import Starfield from "react-starfield";
 import CloudSatellite from "./components/CloudSatellite";
+import Test from "./components/Madarchod";
+import Madarchod from "./components/Madarchod";
 
 // import "./assets/paper-plane.svg";
 export default function App() {
+  const data = Array.from({ length: 28 }, (_, i) => `Item ${i + 1}`);
   const [activeSatellite, setActiveSatellite] = useState("");
   const [planetList, setPlanetList] = useState([]);
   useEffect(() => {
     const encodedValue = encodeURIComponent(activeSatellite);
     // const url =
     //   "https://corsproxy.io/?https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+5+pl_name+FROM+ps+WHERE+disc_facility=%27Transiting%20Exoplanet%20Survey%20Satellite%20(TESS)%27&format=json";
-    const url = `https://corsproxy.io/?https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+5+pl_name+FROM+ps+WHERE+disc_facility='${encodedValue}'&format=json`;
+    const url = `https://corsproxy.io/?https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+7+pl_name+FROM+ps+WHERE+disc_facility='${encodedValue}'&format=json`;
     async function fecthData() {
       try {
         const res = await fetch(url);
@@ -31,7 +34,6 @@ export default function App() {
 
   return (
     <div className="flex flex-col items-center space-y-7">
-      {/* <Background /> */}
       <Starfield
         starCount={5000}
         starColor={[255, 255, 255]}
@@ -43,6 +45,7 @@ export default function App() {
       <Search />
       <SatelliteCardBundle setActiveSatellite={setActiveSatellite} />
       <PlanetCard activeSatellite={activeSatellite} planetList={planetList} />
+      {/* <Madarchod data={data} /> */}
     </div>
   );
 }
@@ -114,17 +117,18 @@ function Satellite({ satelliteName }) {
 
 function PlanetCard({ activeSatellite, planetList }) {
   return (
-    <div className="relative bg-black top-20 w-3/4">
+    <div className="relative  top-20 w-3/4">
       <div className="absolute left-0 -top-10">
         {activeSatellite && (
           <CloudSatellite activeSatellite={activeSatellite} />
         )}
       </div>
-      <div className=" bg-red-300 opacity-0 h-auto w-4/5 rounded-xl  border-solid border-4 border-sky-500 flex flex-col items-center justify-center">
+
+      <div className=" bg-red-300  h-auto w-full rounded-xl  border-solid border-4 border-sky-500 flex flex-col items-center justify-center">
         <div className="font-mochiy">
           {activeSatellite || "Exoplanet Types:"}
         </div>
-        <div className="flex space-x-16">
+        <div className="flex space-x-2">
           {planetList.map((planetTitle, index) => (
             <Planet planetTitle={planetTitle} key={index} />
           ))}
@@ -138,8 +142,8 @@ function Planet({ planetTitle }) {
   const planet = require(`./gas-giant.png`);
   return (
     <div className="flex flex-col items-center justify-center gap-y-3 size-40 mt-4 mb-4">
-      <img src={planet} alt="Satellite" className=" drop-shadow-2xl h-2/3" />
-      <div className=" font-kavoon text-violet-950 ">
+      <img src={planet} alt="Satellite" />
+      <div className=" font-mochiy text-violet-950 ">
         {planetTitle.pl_name || "Un Named Planet"}
       </div>
     </div>
