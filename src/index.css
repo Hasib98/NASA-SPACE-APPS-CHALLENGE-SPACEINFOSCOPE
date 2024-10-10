@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,4 +13,8 @@ body {
 
 .text-outline {
     text-shadow: 0px 0px 30px rgb(222, 224, 69);
+}
+
+.cloud-shadow {
+    box-shadow: inset 20px 20px 20px #000;
 }

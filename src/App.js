@@ -1,6 +1,7 @@
 // const encodedValue = encodeURIComponent(cardSatellite);
 import { useState, useEffect } from "react";
 import Starfield from "react-starfield";
+import CloudSatellite from "./components/CloudSatellite";
 
 // import "./assets/paper-plane.svg";
 export default function App() {
@@ -97,7 +98,7 @@ function SatelliteCard({ satelliteName, setActiveSatellite }) {
   }
   return (
     <div
-      className=" bg-fuchsia-300 bg-opacity-50  shadow-lg shadow-fuchsia-500/50  p-4 rounded-2xl h-24 w-32"
+      className=" bg-fuchsia-300 bg-opacity-50  shadow-lg shadow-fuchsia-500/50  p-4 rounded-2xl h-24 w-32 hover:-translate-y-4 ease-in-out duration-200 active:bg-purple-200"
       onClick={handleSatelliteClick}
     >
       <Satellite satelliteName={satelliteName} />
@@ -110,9 +111,11 @@ function Satellite({ satelliteName }) {
 
   return <img src={sat} alt="Satellite" className="object-cover" />;
 }
+
 function PlanetCard({ activeSatellite, planetList }) {
   return (
-    <div className=" bg-slate-50  h-auto w-4/5 rounded-xl  border-solid border-4 border-sky-500 flex flex-col items-center justify-center">
+    <div className=" bg-red-300  h-auto w-4/5 rounded-xl  border-solid border-4 border-sky-500 flex flex-col items-center justify-center">
+      <CloudSatellite activeSatesallite={activeSatellite} />
       <div className="font-mochiy">{activeSatellite || "Exoplanet Types:"}</div>
       <div className="flex space-x-16">
         {planetList.map((planetTitle) => (
