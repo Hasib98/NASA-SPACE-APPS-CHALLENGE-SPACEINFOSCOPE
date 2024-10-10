@@ -1,5 +1,6 @@
 // const encodedValue = encodeURIComponent(cardSatellite);
 import { useState, useEffect } from "react";
+import Starfield from "react-starfield";
 
 // import "./assets/paper-plane.svg";
 export default function App() {
@@ -29,6 +30,14 @@ export default function App() {
 
   return (
     <div className="flex flex-col items-center space-y-7">
+      {/* <Background /> */}
+      <Starfield
+        starCount={5000}
+        starColor={[255, 255, 255]}
+        speedFactor={0.1}
+        backgroundColor="black"
+      />
+
       <Title />
       <Search />
       <SatelliteCardBundle setActiveSatellite={setActiveSatellite} />
@@ -40,16 +49,24 @@ export default function App() {
 export function Title() {
   return (
     <h1 className="text-4xl  font-kavoon text-white mt-16">
-      Welcome to Space Info Scope
+      Welcome to{" "}
+      <span className="bg-gradient-to-r from-amber-600 from-0% via-orange-400 to-orange-300 text-transparent bg-clip-text outline outline-offset-2  text-outline">
+        Space Info Scope
+      </span>
     </h1>
   );
 }
 
 function Search() {
   return (
-    <div>
-      <input type="text" />
-      <button className="bg-fuchsia-700">Search</button>
+    <div className="flex justify-between space-x-4 w-96">
+      <input
+        type="text"
+        className=" w-full px-4 py-1 rounded-3xl font-kavoon text-sm text-black bg-gradient-to-r from-cyan-300 from-12% via-cyan-600 to-blue-800 outline outline-4 outline-amber-200"
+      />
+      <button className=" px-4 py-1 rounded-3xl font-kavoon text-sm text-black bg-gradient-to-r from-amber-400 from-0% via-orange-300 to-red-200  outline outline-4 outline-amber-200">
+        Search
+      </button>
     </div>
   );
 }

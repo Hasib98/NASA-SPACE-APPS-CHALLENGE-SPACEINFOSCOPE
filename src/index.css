@@ -9,3 +9,7 @@ body {
     @apply h-screen bg-gradient-to-b from-slate-950 to-fuchsia-950;
 
 }
+
+.text-outline {
+    text-shadow: 0px 0px 30px rgb(222, 224, 69);
+}
