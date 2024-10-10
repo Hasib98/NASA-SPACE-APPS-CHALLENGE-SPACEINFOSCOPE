@@ -109,18 +109,26 @@ function SatelliteCard({ satelliteName, setActiveSatellite }) {
 function Satellite({ satelliteName }) {
   const sat = require(`./${satelliteName}.png`);
 
-  return <img src={sat} alt="Satellite" className="object-cover" />;
+  return <img src={sat} alt="Satellite" className="object-cover opacity-85" />;
 }
 
 function PlanetCard({ activeSatellite, planetList }) {
   return (
-    <div className=" bg-red-300  h-auto w-4/5 rounded-xl  border-solid border-4 border-sky-500 flex flex-col items-center justify-center">
-      <CloudSatellite activeSatesallite={activeSatellite} />
-      <div className="font-mochiy">{activeSatellite || "Exoplanet Types:"}</div>
-      <div className="flex space-x-16">
-        {planetList.map((planetTitle) => (
-          <Planet planetTitle={planetTitle} key={planetTitle} />
-        ))}
+    <div className="relative bg-black top-20 w-3/4">
+      <div className="absolute left-0 -top-10">
+        {activeSatellite && (
+          <CloudSatellite activeSatellite={activeSatellite} />
+        )}
+      </div>
+      <div className=" bg-red-300 opacity-0 h-auto w-4/5 rounded-xl  border-solid border-4 border-sky-500 flex flex-col items-center justify-center">
+        <div className="font-mochiy">
+          {activeSatellite || "Exoplanet Types:"}
+        </div>
+        <div className="flex space-x-16">
+          {planetList.map((planetTitle, index) => (
+            <Planet planetTitle={planetTitle} key={index} />
+          ))}
+        </div>
       </div>
     </div>
   );

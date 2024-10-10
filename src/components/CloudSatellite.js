@@ -1,14 +1,27 @@
-export default function CloudSatellite({ activeSatesallite }) {
-  console.log(activeSatesallite);
-  // const sat = require(`../Transiting Exoplanet Survey Satellite (TESS).png`);
-  const sat = require(`../${activeSatesallite}.png`);
+export default function CloudSatellite({ activeSatellite }) {
+  function satName(value) {
+    if (value === "Transiting Exoplanet Survey Satellite (TESS)") {
+      return "Tess";
+    }
+    if (value === "James Webb Space Telescope (JWST)") {
+      return "JWST";
+    }
+    if (value === "Spitzer Space Telescope") {
+      return "Sptizer";
+    }
+    if (value === "Hubble Space Telescope") {
+      return "Hubble";
+    }
+    return value;
+  }
+  const sat = require(`../${activeSatellite}.png`);
 
   return (
     <div className="flex">
       <div className="relative right-20">
         <img src={sat} alt="Satellite" className="object-cover" />
       </div>
-      <div className="relative flex justify-center">
+      <div className="relative flex justify-center -top-14">
         <div className="absolute">
           <svg
             width="300"
@@ -27,10 +40,10 @@ export default function CloudSatellite({ activeSatesallite }) {
                 y2="1.8"
               >
                 {" "}
-                <stop id="stop1" stop-color="#ababab" offset="0%"></stop>
-                <stop id="stop2" stop-color="#ababab" offset="10%"></stop>
-                <stop id="stop3" stop-color="#f0f0f0" offset="40%"></stop>
-                <stop id="stop4" stop-color="#f0f0f0" offset="100%"></stop>
+                <stop id="stop1" stopColor="#ababab" offset="0%"></stop>
+                <stop id="stop2" stopColor="#ababab" offset="10%"></stop>
+                <stop id="stop3" stopColor="#f0f0f0" offset="40%"></stop>
+                <stop id="stop4" stopColor="#f0f0f0" offset="100%"></stop>
               </linearGradient>
             </defs>
             <path
@@ -45,7 +58,7 @@ export default function CloudSatellite({ activeSatesallite }) {
         </div>
         <div className="absolute w-40 top-3">
           <p className="  text-3xl font-bold  text-orange-400 text-right">
-            Tess
+            {satName(activeSatellite)}
           </p>
           <p className="  text-lg font-medium  text-cyan-800">
             Launch: April 18
