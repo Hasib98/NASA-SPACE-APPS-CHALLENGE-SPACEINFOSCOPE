@@ -97,7 +97,7 @@ function SatelliteCard({ satelliteName, setActiveSatellite }) {
   }
   return (
     <div
-      className="bg-white p-4 rounded-xl h-22 w-24"
+      className=" bg-fuchsia-300 bg-opacity-50  shadow-lg shadow-fuchsia-500/50  p-4 rounded-2xl h-24 w-32"
       onClick={handleSatelliteClick}
     >
       <Satellite satelliteName={satelliteName} />
@@ -108,7 +108,7 @@ function SatelliteCard({ satelliteName, setActiveSatellite }) {
 function Satellite({ satelliteName }) {
   const sat = require(`./${satelliteName}.png`);
 
-  return <img src={sat} alt="Satellite" className=" drop-shadow-2xl" />;
+  return <img src={sat} alt="Satellite" className="object-cover" />;
 }
 function PlanetCard({ activeSatellite, planetList }) {
   return (
