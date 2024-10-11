@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Starfield from "react-starfield";
 import CloudSatellite from "./components/CloudSatellite";
 
-import Madarchod from "./components/Madarchod";
+import PlanetGroup from "./components/PlanetGroup";
 
 // import "./assets/paper-plane.svg";
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
     const encodedValue = encodeURIComponent(activeSatellite);
     // const url =
     //   "https://corsproxy.io/?https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+5+pl_name+FROM+ps+WHERE+disc_facility=%27Transiting%20Exoplanet%20Survey%20Satellite%20(TESS)%27&format=json";
-    const url = `https://corsproxy.io/?https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+pl_name+FROM+ps+WHERE+disc_facility='${encodedValue}'&format=json`;
+    const url = `https://corsproxy.io/?https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+27+pl_name+FROM+ps+WHERE+disc_facility='${encodedValue}'&format=json`;
     async function fecthData() {
       try {
         const res = await fetch(url);
@@ -22,7 +22,6 @@ export default function App() {
           console.log("no responspe");
         }
         const data = await res.json();
-        console.log(data);
         setPlanetList(data);
       } catch (error) {
         console.log(error.message);
@@ -123,11 +122,13 @@ function PlanetCard({ activeSatellite, planetList }) {
         )}
       </div>
 
-      <div className=" bg-red-300  h-auto w-full rounded-xl  border-solid border-4 border-sky-500 flex flex-col items-center justify-center">
-        <div className="font-mochiy mb-5">
+      <div className=" bg-blue-950  h-auto w-full rounded-xl  border-solid border-4 border-gray-400 flex flex-col items-center justify-center p-3">
+        <div className="font-mochiy mb-5 text-slate-50">
           {activeSatellite || "Exoplanet Types:"}
         </div>
-        <Madarchod planetList={planetList} />
+        <div className="w-full border-solid border-4 border-gray-400 ">
+          <PlanetGroup planetList={planetList} />
+        </div>
       </div>
     </div>
   );
