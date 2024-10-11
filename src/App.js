@@ -4,9 +4,11 @@ import Starfield from "react-starfield";
 import CloudSatellite from "./components/CloudSatellite";
 
 import PlanetGroup from "./components/PlanetGroup";
+import PlanetDetailsPage from "./components/PlanetDetailsPage";
 
 // import "./assets/paper-plane.svg";
 export default function App() {
+  const [planetName, setPlanetName] = useState("");
   const [activeSatellite, setActiveSatellite] = useState("");
   const [planetList, setPlanetList] = useState([]);
   useEffect(() => {
@@ -43,7 +45,7 @@ export default function App() {
       <Search />
       <SatelliteCardBundle setActiveSatellite={setActiveSatellite} />
       <PlanetCard activeSatellite={activeSatellite} planetList={planetList} />
-      {/* <Madarchod data={data} /> */}
+      <PlanetDetailsPage planetName={planetName} />
     </div>
   );
 }

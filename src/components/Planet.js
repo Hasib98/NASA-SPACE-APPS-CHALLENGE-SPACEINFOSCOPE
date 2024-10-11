@@ -1,7 +1,7 @@
 export default function Planet({ planetTitle }) {
   // const planet = require(`../gas-giant.png`);
   return (
-    <div className="flex flex-col items-center justify-center  mt-4 mb-4">
+    <div className="flex flex-col items-center justify-center  mt-4 mb-4 hover:-translate-y-4 ease-in-out duration-200">
       <Globe />
       {/* <img src={planet} alt="Satellite" /> */}
       <div className=" font-mochiy text-slate-50  text-sm text-center">
