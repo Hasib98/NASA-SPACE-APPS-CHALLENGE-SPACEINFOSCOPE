@@ -4,12 +4,13 @@ import Starfield from "react-starfield";
 import CloudSatellite from "./components/CloudSatellite";
 
 import PlanetGroup from "./components/PlanetGroup";
-import PlanetDetailsPage from "./components/PlanetDetailsPage";
+import HomeButton from "./components/HomeButton";
+import ExoplanetInfo from "./components/planet-details/ExoplanetInfo";
 
 // import "./assets/paper-plane.svg";
 export default function App() {
-  const [planetName, setPlanetName] = useState("");
-  const [activeSatellite, setActiveSatellite] = useState("");
+  const [planetName, setPlanetName] = useState(null);
+  const [activeSatellite, setActiveSatellite] = useState(null);
   const [planetList, setPlanetList] = useState([]);
   useEffect(() => {
     const encodedValue = encodeURIComponent(activeSatellite);
@@ -32,8 +33,10 @@ export default function App() {
     fecthData();
   }, [activeSatellite]);
 
+  // _________________________________________________________________________________________
+
   return (
-    <div className="flex flex-col items-center space-y-7">
+    <div className="flex flex-col items-center space-y-7 max-h-screen  max-w-screen">
       <Starfield
         starCount={5000}
         starColor={[255, 255, 255]}
@@ -42,10 +45,25 @@ export default function App() {
       />
 
       <Title />
-      <Search />
-      <SatelliteCardBundle setActiveSatellite={setActiveSatellite} />
-      <PlanetCard activeSatellite={activeSatellite} planetList={planetList} />
-      <PlanetDetailsPage planetName={planetName} />
+      <Search setPlanetName={setPlanetName} />
+      {!planetName ? (
+        <>
+          <SatelliteCardBundle setActiveSatellite={setActiveSatellite} />
+          <PlanetCard
+            activeSatellite={activeSatellite}
+            planetList={planetList}
+            setPlanetName={setPlanetName}
+          />
+        </>
+      ) : (
+        <>
+          <ExoplanetInfo planetName={planetName} />
+          <HomeButton
+            setPlanetName={setPlanetName}
+            setActiveSatellite={setActiveSatellite}
+          />
+        </>
+      )}
     </div>
   );
 }
@@ -61,17 +79,33 @@ export function Title() {
   );
 }
 
-function Search() {
+function Search({ setPlanetName }) {
+  const [searchPlanetName, setSearchPlanetName] = useState("");
+  function hanndleSubmit(e) {
+    e.preventDefault();
+
+    if (!searchPlanetName) return;
+
+    setPlanetName(searchPlanetName);
+    setSearchPlanetName("");
+  }
+
   return (
-    <div className="flex justify-between space-x-4 w-96">
+    <form
+      className="flex justify-between space-x-4 w-96"
+      onSubmit={hanndleSubmit}
+    >
       <input
-        type="text"
         className=" w-full px-4 py-1 rounded-3xl font-kavoon text-sm text-black bg-gradient-to-r from-cyan-300 from-12% via-cyan-600 to-blue-800 outline outline-4 outline-amber-200"
+        type="text"
+        placeholder="Type an ExoPlant Name..."
+        value={searchPlanetName}
+        onChange={(e) => setSearchPlanetName(e.target.value)}
       />
       <button className=" px-4 py-1 rounded-3xl font-kavoon text-sm text-black bg-gradient-to-r from-amber-400 from-0% via-orange-300 to-red-200  outline outline-4 outline-amber-200">
         Search
       </button>
-    </div>
+    </form>
   );
 }
 function SatelliteCardBundle({ setActiveSatellite }) {
@@ -115,23 +149,20 @@ function Satellite({ satelliteName }) {
   return <img src={sat} alt="Satellite" className="object-cover opacity-85" />;
 }
 
-function PlanetCard({ activeSatellite, planetList }) {
+function PlanetCard({ activeSatellite, planetList, setPlanetName }) {
   return (
-    <div className="relative  top-20 w-3/4">
+    <div className="relative  top-20  w-3/4 aspect-[5/1] bg-blue-950  rounded-xl  border-solid border-4 border-gray-400 flex flex-col items-center pt-0 pl-10 pr-10 pb-10">
       <div className="absolute left-0 -top-10">
         {activeSatellite && (
           <CloudSatellite activeSatellite={activeSatellite} />
         )}
       </div>
-
-      <div className=" bg-blue-950  h-auto w-full rounded-xl  border-solid border-4 border-gray-400 flex flex-col items-center justify-center p-3">
-        <div className="font-mochiy mb-5 text-slate-50">
-          {activeSatellite || "Exoplanet Types:"}
-        </div>
-        <div className="w-full border-solid border-4 border-gray-400 ">
-          <PlanetGroup planetList={planetList} />
-        </div>
+      <div className="font-mochiy mb-5 text-slate-50 ">
+        {activeSatellite || "Exoplanet Types:"}
       </div>
+      {/* <div className="h-72 w-full rounded-xl border-solid border-4 border-gray-400  bg-black"> */}
+      <PlanetGroup planetList={planetList} setPlanetName={setPlanetName} />
+      {/* </div> */}
     </div>
   );
 }

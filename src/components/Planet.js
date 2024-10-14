@@ -1,7 +1,10 @@
-export default function Planet({ planetTitle }) {
+export default function Planet({ planetTitle, setPlanetName }) {
   // const planet = require(`../gas-giant.png`);
   return (
-    <div className="flex flex-col items-center justify-center  mt-4 mb-4 hover:-translate-y-4 ease-in-out duration-200">
+    <div
+      className=" flex flex-col items-center justify-center hover:-translate-y-4 ease-in-out duration-200 scale-75"
+      onClick={() => setPlanetName(planetTitle.pl_name)}
+    >
       <Globe />
       {/* <img src={planet} alt="Satellite" /> */}
       <div className=" font-mochiy text-slate-50  text-sm text-center">
@@ -58,8 +61,8 @@ function Globe() {
   return (
     <div>
       <svg
-        width="140"
-        height="162"
+        width="120"
+        height="100"
         viewBox="0 0 165 162"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

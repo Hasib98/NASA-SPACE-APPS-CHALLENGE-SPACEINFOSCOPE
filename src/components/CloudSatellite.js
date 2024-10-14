@@ -7,7 +7,7 @@ export default function CloudSatellite({ activeSatellite }) {
       return "JWST";
     }
     if (value === "Spitzer Space Telescope") {
-      return "Sptizer";
+      return "Spitzer";
     }
     if (value === "Hubble Space Telescope") {
       return "Hubble";
