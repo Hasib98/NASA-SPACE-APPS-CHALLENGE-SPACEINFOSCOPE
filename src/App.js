@@ -6,6 +6,7 @@ import CloudSatellite from "./components/CloudSatellite";
 import PlanetGroup from "./components/PlanetGroup";
 import HomeButton from "./components/HomeButton";
 import ExoplanetInfo from "./components/planet-details/ExoplanetInfo";
+import Satellite from "./components/Satellite";
 
 // import "./assets/paper-plane.svg";
 export default function App() {
@@ -141,12 +142,6 @@ function SatelliteCard({ satelliteName, setActiveSatellite }) {
       <Satellite satelliteName={satelliteName} />
     </div>
   );
-}
-
-function Satellite({ satelliteName }) {
-  const sat = require(`./${satelliteName}.png`);
-
-  return <img src={sat} alt="Satellite" className="object-cover opacity-85" />;
 }
 
 function PlanetCard({ activeSatellite, planetList, setPlanetName }) {

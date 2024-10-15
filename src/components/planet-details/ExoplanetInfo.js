@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import CapsuleCard from "./CapsuleCard";
+import SatelliteCapsuleCard from "./SatelliteCapsuleCard";
 
 export default function ExoplanetInfo({ planetName }) {
   const [planetData, setPlanetData] = useState(null);
@@ -31,52 +33,6 @@ export default function ExoplanetInfo({ planetName }) {
     fetchPlanetData();
   }, [planetName]); // Fetch data whenever the planetName changes
 
-  // useEffect(() => {
-  //   const encodedValue = encodeURIComponent(planetName);
-
-  //   const url = `https://corsproxy.io/?https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+1+pl_name,disc_facility,disc_year,pl_rade,discoverymethod,pl_masse,pl_orbsmax,pl_orbper,pl_orbeccen+FROM+ps+WHERE+pl_name='${encodedValue}'&format=json`;
-  //   async function fecthPlanetData() {
-  //     try {
-  //       const res = await fetch(url);
-
-  //       if (!res.ok) {
-  //         console.log("no responspe");
-  //       }
-  //       const data = await res.json();
-  //       setPlanetDetails(data);
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   }
-  //   fecthPlanetData();
-  // }, [planetDetails]);
-
-  // const encodedValue = encodeURIComponent(planetName);
-
-  // const url = `https://corsproxy.io/?https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=SELECT+TOP+1+pl_name,disc_facility,disc_year,pl_rade,discoverymethod,pl_masse,pl_orbsmax,pl_orbper,pl_orbeccen+FROM+ps+WHERE+pl_name='${encodedValue}'&format=json`;
-  // async function fecthPlanetData() {
-  //   try {
-  //     const res = await fetch(url);
-
-  //     if (!res.ok) {
-  //       console.log("no responspe");
-  //     }
-  //     const data = await res.json();
-  //     console.log(data);
-  //     setPlanetDetails(data[0]);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // }
-  // fecthPlanetData();
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (error) {
-  //   return <div>Error: {error}</div>;
-  // }
   const {
     pl_name: planetname,
     disc_facility: discoveryFacility,
@@ -90,41 +46,29 @@ export default function ExoplanetInfo({ planetName }) {
   } = planetData || {}; // If planetData is null, it won't throw errors
 
   return (
-    <div className="bg-black text-white">
-      <h1>Exoplanet Information</h1>
-      <div>
-        <strong>Planet Name:</strong> {planetname}
-      </div>
-      <div>
-        <strong>Discovery Facility:</strong> {discoveryFacility}
-      </div>
-      <div>
-        <strong>Discovery Year:</strong> {discoveryYear}
-      </div>
-      <div>
-        <strong>Planet Radius:</strong> {planetRadius}
-      </div>
-      <div>
-        <strong>Discovery Method:</strong> {discoveryMethod}
-      </div>
-      <div>
-        <strong>Planet Mass:</strong> {planetMass !== null ? planetMass : "N/A"}
-      </div>
-      <div>
-        <strong>Orbit Semi-Major Axis:</strong> {orbitSemiMajorAxis}
-      </div>
-      <div>
-        <strong>Orbital Period:</strong> {orbitalPeriod}
-      </div>
-      <div>
-        <strong>Orbital Eccentricity:</strong>{" "}
-        {orbitalEccentricity !== null ? orbitalEccentricity : "N/A"}
-      </div>
+    <div className="space-y-3">
+      <SatelliteCapsuleCard
+        discoveredBy={discoveryFacility}
+        discoveryYear={discoveryYear}
+      />
+      <CapsuleCard name="Planet Radius" value={planetRadius} isEarth={true} />
+      <CapsuleCard
+        name="Discovery Method"
+        value={discoveryMethod}
+        isEarth={false}
+      />
+      <CapsuleCard name="Planet Mass" value={planetMass} isEarth={true} />
+      <CapsuleCard
+        name="Orbital Radius"
+        value={orbitSemiMajorAxis}
+        isEarth={false}
+      />
+      <CapsuleCard name="Orbital Period" value={orbitalPeriod} isEarth={true} />
+      <CapsuleCard
+        name="Eccentricity"
+        value={orbitalEccentricity}
+        isEarth={false}
+      />
     </div>
-    // <div className="relative top-20 text-white bg-black w-full h-20">
-    //   <div>{planetName}</div>
-
-    //   <div>{discoveryFacility}</div>
-    // </div>
   );
 }
