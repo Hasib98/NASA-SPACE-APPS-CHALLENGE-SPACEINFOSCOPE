@@ -155,9 +155,7 @@ function PlanetCard({ activeSatellite, planetList, setPlanetName }) {
       <div className="font-mochiy mb-5 text-slate-50 ">
         {activeSatellite || "Exoplanet Types:"}
       </div>
-      {/* <div className="h-72 w-full rounded-xl border-solid border-4 border-gray-400  bg-black"> */}
       <PlanetGroup planetList={planetList} setPlanetName={setPlanetName} />
-      {/* </div> */}
     </div>
   );
 }

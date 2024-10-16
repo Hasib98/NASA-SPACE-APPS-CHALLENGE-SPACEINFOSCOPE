@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import CapsuleCard from "./CapsuleCard";
-import SatelliteCapsuleCard from "./SatelliteCapsuleCard";
+import CardInfoSection from "./CardInfoSection";
+import PlanetTitleDescription from "./PlanetTitleDescription";
 
 export default function ExoplanetInfo({ planetName }) {
   const [planetData, setPlanetData] = useState(null);
@@ -33,42 +33,10 @@ export default function ExoplanetInfo({ planetName }) {
     fetchPlanetData();
   }, [planetName]); // Fetch data whenever the planetName changes
 
-  const {
-    pl_name: planetname,
-    disc_facility: discoveryFacility,
-    disc_year: discoveryYear,
-    pl_rade: planetRadius,
-    discoverymethod: discoveryMethod,
-    pl_masse: planetMass,
-    pl_orbsmax: orbitSemiMajorAxis,
-    pl_orbper: orbitalPeriod,
-    pl_orbeccen: orbitalEccentricity,
-  } = planetData || {}; // If planetData is null, it won't throw errors
-
   return (
-    <div className="space-y-3">
-      <SatelliteCapsuleCard
-        discoveredBy={discoveryFacility}
-        discoveryYear={discoveryYear}
-      />
-      <CapsuleCard name="Planet Radius" value={planetRadius} isEarth={true} />
-      <CapsuleCard
-        name="Discovery Method"
-        value={discoveryMethod}
-        isEarth={false}
-      />
-      <CapsuleCard name="Planet Mass" value={planetMass} isEarth={true} />
-      <CapsuleCard
-        name="Orbital Radius"
-        value={orbitSemiMajorAxis}
-        isEarth={false}
-      />
-      <CapsuleCard name="Orbital Period" value={orbitalPeriod} isEarth={true} />
-      <CapsuleCard
-        name="Eccentricity"
-        value={orbitalEccentricity}
-        isEarth={false}
-      />
-    </div>
+    <>
+      <PlanetTitleDescription planetData={planetData} />;
+      <CardInfoSection planetData={planetData} />;
+    </>
   );
 }

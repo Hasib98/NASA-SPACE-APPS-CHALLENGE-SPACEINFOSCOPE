@@ -8,6 +8,7 @@ module.exports = {
         mochiy: ["Mochiy Pop P One", "sans-serif"],
         righteous: ["Righteous", "sans-serif"],
         madimione: ["Madimi One", "sans-serif"],
+        andika: ["Andika", "sans-serif"],
       },
       // textShadow: {
       //   outline: "2px 2px 0px black", // Customize the shadow for outline effect

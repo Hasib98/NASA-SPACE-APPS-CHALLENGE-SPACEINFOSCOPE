@@ -18,14 +18,19 @@ export default function SatelliteCapsuleCard({ discoveredBy, discoveryYear }) {
   const satellite = satName(discoveredBy);
   console.log(discoveredBy);
   return (
-    <div className="bg-green-200 min-w-72 h-28 rounded-lg font-kavoon text-indigo-950 flex items-center space-x-4">
-      <div className="bg-white min-w-40 h-full rounded-lg flex flex-col items-center justify-center">
-        <Satellite satelliteName={discoveredBy} size={"size-24"} />
-        <div className="text-3xl text-sky-950">{satellite}</div>
+    <div>
+      <div className="text-white font-kavoon text-xl text-center">
+        Discovered By
       </div>
-      <div className="relative top-2 flex flex-col items-center justify-center">
-        <div className="w-20 text-center">Discoverd in</div>
-        <div className="font-madimione text-4xl">{discoveryYear}</div>
+      <div className="bg-green-200 min-w-72 h-28 rounded-lg font-kavoon text-indigo-950 flex items-center space-x-4">
+        <div className="bg-white min-w-40 h-full rounded-lg flex flex-col items-center justify-center">
+          <Satellite satelliteName={discoveredBy} size={"size-24"} />
+          <div className="text-3xl text-sky-950">{satellite}</div>
+        </div>
+        <div className="relative top-2 flex flex-col items-center justify-center">
+          <div className="w-20 text-center">Discoverd in</div>
+          <div className="font-madimione text-4xl">{discoveryYear}</div>
+        </div>
       </div>
     </div>
   );
