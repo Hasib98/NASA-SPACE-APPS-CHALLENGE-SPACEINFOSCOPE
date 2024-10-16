@@ -22,7 +22,7 @@ function Globe() {
     const randomColor = Math.floor(Math.random() * 16777215);
     // Convert the number to a hexadecimal string and pad with leading zeros if necessary
     const hexColor = "#" + randomColor.toString(16).padStart(6, "0");
-    console.log(hexColor);
+
     return hexColor;
   }
   // function getRandomHexColor() {
@@ -173,8 +173,8 @@ function Globe() {
             y2="123.827"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.000434028" stop-color={baseHex1} />
-            <stop offset="1" stop-color={baseHex2} />
+            <stop offset="0.000434028" stopColor={baseHex1} />
+            <stop offset="1" stopColor={baseHex2} />
           </linearGradient>
         </defs>
       </svg>

@@ -1,6 +1,5 @@
 import Earth from "./Earth";
 export default function CapsuleCard({ name, value, isEarth = false }) {
-  //   console.log(value);
   if (!value) isEarth = false;
   return (
     <div className="bg-amber-200 min-w-72 h-8 rounded-lg font-kavoon text-indigo-950 flex items-center">

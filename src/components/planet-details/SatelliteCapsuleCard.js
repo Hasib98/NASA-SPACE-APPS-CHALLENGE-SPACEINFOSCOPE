@@ -16,7 +16,6 @@ export default function SatelliteCapsuleCard({ discoveredBy, discoveryYear }) {
     return value;
   }
   const satellite = satName(discoveredBy);
-  console.log(discoveredBy);
   return (
     <div>
       <div className="text-white font-kavoon text-xl text-center">
