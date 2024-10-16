@@ -10,6 +10,15 @@ module.exports = {
         madimione: ["Madimi One", "sans-serif"],
         andika: ["Andika", "sans-serif"],
       },
+      // keyframes: {
+      //   fadeIn: {
+      //     "0%": { opacity: "0" },
+      //     // "100%": { opacity: "1" },
+      //   },
+      // },
+      // animation: {
+      //   fadeIn: "fadeIn 1s ease-in",
+      // },
       // textShadow: {
       //   outline: "2px 2px 0px black", // Customize the shadow for outline effect
       // },

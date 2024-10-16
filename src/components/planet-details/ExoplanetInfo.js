@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CardInfoSection from "./CardInfoSection";
 import PlanetTitleDescription from "./PlanetTitleDescription";
+import CenterExoplanet from "./CenterExoplanet";
 
 export default function ExoplanetInfo({ planetName }) {
   const [planetData, setPlanetData] = useState(null);
@@ -35,8 +36,8 @@ export default function ExoplanetInfo({ planetName }) {
 
   return (
     <>
+      <CardInfoSection planetData={planetData} />;<CenterExoplanet />
       <PlanetTitleDescription planetData={planetData} />;
-      <CardInfoSection planetData={planetData} />;
     </>
   );
 }

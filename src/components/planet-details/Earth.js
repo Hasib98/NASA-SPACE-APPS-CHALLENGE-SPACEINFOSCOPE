@@ -1,6 +1,7 @@
 export default function Earth() {
   return (
     <svg
+      className="size-full"
       width="25"
       height="25"
       viewBox="0 0 34 32"
