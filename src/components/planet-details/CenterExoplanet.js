@@ -102,9 +102,7 @@ export default function CenterExoplanet() {
       <div className=" left-[20vw] top-[60vh] absolute size-40">
         <Earth />
       </div>
-      <div className=" left-[30vw] top-[60vh] absolute size-36">
-        <AstronautRocket />
-      </div>
+      <AstronautRocket />
     </div>
   );
 }
