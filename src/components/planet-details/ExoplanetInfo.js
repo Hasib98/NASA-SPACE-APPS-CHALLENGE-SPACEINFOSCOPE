@@ -7,6 +7,8 @@ import Quiz from "./modal/Quiz";
 
 export default function ExoplanetInfo({ planetName }) {
   const [planetData, setPlanetData] = useState(null);
+  const [quizModal, setQuizModal] = useState(false);
+
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(null);
 
@@ -40,8 +42,10 @@ export default function ExoplanetInfo({ planetName }) {
     <>
       <CardInfoSection planetData={planetData} />;<CenterExoplanet />
       <PlanetTitleDescription planetData={planetData} />;
-      <ButtonGroup />
-      <Quiz planetData={planetData} />
+      <ButtonGroup setQuizModal={setQuizModal} />
+      {quizModal && (
+        <Quiz planetData={planetData} setQuizModal={setQuizModal} />
+      )}
     </>
   );
 }

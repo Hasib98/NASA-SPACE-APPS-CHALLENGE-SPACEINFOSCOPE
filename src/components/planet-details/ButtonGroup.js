@@ -1,7 +1,4 @@
-import { useState } from "react";
-
-export default function ButtonGroup() {
-  const [quizModal, setQuizModal] = useState(false);
+export default function ButtonGroup({ setQuizModal }) {
   function handleClick() {
     setQuizModal(true);
   }
