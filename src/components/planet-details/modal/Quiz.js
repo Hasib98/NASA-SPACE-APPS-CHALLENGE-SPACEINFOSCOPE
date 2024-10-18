@@ -20,7 +20,7 @@ export default function Quiz({ planetData, setQuizModal }) {
         <div className="self-start">1. What is Planet Radius?</div>
         <div className="grid grid-cols-2 gap-4 w-11/12">
           <div className="bg-white w-full  rounded-lg h-8 pt-1 pl-2 flex items-center">
-            A. 2.06
+            A. {planetRadius}
           </div>
           <div className="bg-white w-full rounded-lg h-8 pt-1 pl-2 flex items-center">
             B. 2.06
@@ -42,7 +42,7 @@ export default function Quiz({ planetData, setQuizModal }) {
             A. 2.06
           </div>
           <div className="bg-white w-full rounded-lg h-8 pt-1 pl-2 flex items-center">
-            A. 2.06
+            A. {discoveryMethod}
           </div>
           <div className="bg-white w-full rounded-lg h-8 pt-1 pl-2 flex items-center">
             A. 2.06
@@ -67,7 +67,7 @@ export default function Quiz({ planetData, setQuizModal }) {
             A. 2.06
           </div>
           <div className="bg-white w-full rounded-lg h-8 pt-1 pl-2 flex items-center">
-            A. 2.06
+            A. {orbitalPeriod}
           </div>
         </div>
       </div>
