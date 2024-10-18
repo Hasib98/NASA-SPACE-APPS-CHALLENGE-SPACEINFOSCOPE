@@ -72,7 +72,7 @@ export default function App() {
 export function Title() {
   return (
     <h1 className="text-4xl  font-kavoon text-white mt-16">
-      Welcome to{" "}
+      (The Site is under development) Welcome to{" "}
       <span className="bg-gradient-to-r from-amber-600 from-0% via-orange-400 to-orange-300 text-transparent bg-clip-text outline outline-offset-2  text-outline">
         Space Info Scope
       </span>

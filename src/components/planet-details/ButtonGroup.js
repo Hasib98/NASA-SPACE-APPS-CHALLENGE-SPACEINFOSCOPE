@@ -1,4 +1,11 @@
+import { useState } from "react";
+
 export default function ButtonGroup() {
+  const [quizModal, setQuizModal] = useState(false);
+  function handleClick() {
+    setQuizModal(true);
+  }
+
   return (
     <div className=" absolute bottom-10 flex gap-x-5">
       {/* <Button>View 3D Model</Button>
@@ -11,6 +18,7 @@ export default function ButtonGroup() {
       </button>
       <button
         className={`h-14 w-40  border-2 border-slate-100  rounded-lg  bg-gradient-to-r from-red-500 to-red-400 [box-shadow:0_5px_0px_0px_#f43f5e] text-white font-madimione`}
+        onClick={handleClick}
       >
         Take a Quiz
       </button>

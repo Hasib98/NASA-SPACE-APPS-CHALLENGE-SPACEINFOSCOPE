@@ -9,6 +9,7 @@ module.exports = {
         righteous: ["Righteous", "sans-serif"],
         madimione: ["Madimi One", "sans-serif"],
         andika: ["Andika", "sans-serif"],
+        karma: ["Karma", "serif"],
       },
       // keyframes: {
       //   fadeIn: {

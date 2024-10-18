@@ -3,6 +3,7 @@ import CardInfoSection from "./CardInfoSection";
 import PlanetTitleDescription from "./PlanetTitleDescription";
 import CenterExoplanet from "./CenterExoplanet";
 import ButtonGroup from "./ButtonGroup";
+import Quiz from "./modal/Quiz";
 
 export default function ExoplanetInfo({ planetName }) {
   const [planetData, setPlanetData] = useState(null);
@@ -40,6 +41,7 @@ export default function ExoplanetInfo({ planetName }) {
       <CardInfoSection planetData={planetData} />;<CenterExoplanet />
       <PlanetTitleDescription planetData={planetData} />;
       <ButtonGroup />
+      <Quiz planetData={planetData} />
     </>
   );
 }
